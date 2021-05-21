@@ -1,0 +1,139 @@
+// USER VARIABLES SECTION
+$accent: #111B47 // Accent Color
+$fontsize: 16px // Body Font Size
+$textcolor: #6F7CB2 // Text Color
+$lineheight: 26px // Document Line Height
+$title: #091133
+$link: #505F98
+$userfont: roboto, sans-serif // User Font Family
+$systemfont: -apple-system, BlinkMacSystemFont, Arial, sans-serif // System Font Family
+
+// Bootstrap compatible gutter variable => $gutter
+$grid-gutter-width: 30px
+$gutter: $grid-gutter-width
+
+// IMPORT SECTION
+
+@import 'node_modules/bootstrap/scss/bootstrap-reboot.scss' // Bootstrap Reboot collection
+@import 'node_modules/bootstrap/scss/mixins/_breakpoints.scss' // Bootstrap Breakpoints mixin
+// @import 'node_modules/bootstrap/scss/bootstrap-grid.scss' // Optional Bootstrap Grid
+// @import 'node_modules/bootstrap/scss/utilities/_sizing.scss' // Optional Bootstrap Utilites
+
+// FONTS LOAD SECTION
+
+@mixin font($fname, $fstyle, $fweight, $furl)
+	@font-face
+		font-family: $fname
+		font-style: $fstyle
+		font-weight: $fweight
+		src: url($furl) format('woff2')
+
+@include font('roboto', normal, 400, '../../assets/fonts/Roboto-Regular (1).woff2')
+@include font('roboto', normal, 500, '../../assets/fonts/Roboto-Medium (1).woff2')
+@include font('roboto', normal, 900, '../../assets/fonts/Roboto-Black.woff2')
+
+
+// GENERAL DOCUMENT STYLES
+
+::placeholder
+	color: #666
+
+::selection
+	background-color: $accent
+	color: #fff
+
+input, textarea
+	outline: none
+	&:focus:required:invalid
+		border-color: red
+	&:required:valid
+		border-color: green
+
+body
+	font-family: $userfont
+	font-size: $fontsize
+	line-height: $lineheight
+	color: $textcolor
+	min-width: 320px
+	position: relative
+	overflow-x: hidden
+	font-weight: 400
+
+.container
+	max-width: 1170px
+	padding: 0 15px
+	margin: 0 auto
+	height: 100%
+
+ul
+	margin: 0
+	padding: 0
+	list-style-type: none
+
+a
+	transition: all .3s
+	color: $link
+	&:hover
+		color: $accent
+		text-decoration: none
+
+img
+	max-width: 100%
+
+.button
+	display: inline-block
+	border-radius: 2px
+	color: #fff
+	line-height: 18px
+	font-size: 12px
+	font-weight: 500
+	text-decoration: none
+	background-color: $accent
+	outline: none
+	width: 160px
+	height: 26px
+	cursor: pointer
+	display: flex
+	justify-content: center
+	align-items: center
+	transition: all .3s ease
+	border: 1px solid transparent
+	&:hover
+		color: $title
+		border-color: $accent
+		background-color: transparent
+	&--outlined
+		background-color: transparent
+		color: $title
+		border-color: $accent
+		&:hover
+			color: #fff
+			border-color: transparent
+			background-color: $accent
+
+
+
+.title
+	font-weight: 500
+	font-size: 36px
+	line-height: 48px
+	color: $title
+	margin-bottom: 16px
+	@media (max-width: 576px)
+		font-size: 32px
+	@media (max-width: 480px)
+		font-size: 30px
+		line-height: 45px
+
+.content__item
+	width: 255px
+	&-title
+		font-weight: 500
+		font-size: 16px
+		line-height: 26px
+		margin: 14px 0 6px
+		color: $title
+	&-text
+		font-size: 12px
+		line-height: 18px
+		color: #5D6970
