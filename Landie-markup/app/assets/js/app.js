@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	document.querySelector('.hamburger').addEventListener('click', function() {
   document.querySelector('.hamburger--slider').classList.toggle('is-active');
   document.querySelector('.menu__list').classList.toggle('is-active');
+  document.querySelector("html").classList.toggle('hidden');
 })
 
 })
